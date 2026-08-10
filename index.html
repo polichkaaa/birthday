@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>С Днём Рождения ♡</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at 20% 20%, #5c1d35 0%, transparent 35%),
+                radial-gradient(circle at 80% 70%, #381427 0%, transparent 35%),
+                #120b10;
+
+            color: white;
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .page {
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 55px 20px 100px;
+
+            position: relative;
+        }
+
+
+        .small {
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            opacity: 0.55;
+
+            margin-bottom: 25px;
+        }
+
+
+        h1 {
+            font-family: Georgia, serif;
+
+            font-size: clamp(45px, 9vw, 90px);
+
+            font-weight: normal;
+
+            line-height: 0.95;
+
+            margin-bottom: 30px;
+
+            max-width: 1000px;
+        }
+
+
+        .subtitle {
+            opacity: 0.65;
+
+            font-size: 15px;
+
+            /*
+            ВАЖНО:
+            здесь специально большое расстояние,
+            чтобы свечи НЕ лезли на текст
+            */
+            margin-bottom: 100px;
+
+            position: relative;
+
+            z-index: 20;
+        }
+
+
+
+        /* =========================
+           CAKE
+        ========================= */
+
+        .cake-wrapper {
+            position: relative;
+
+            cursor: pointer;
+
+            transition: transform 0.25s ease;
+
+            margin-top: 15px;
+        }
+
+
+        .cake-wrapper:hover {
+            transform: scale(1.04);
+        }
+
+
+        .cake {
+            position: relative;
+
+            width: 280px;
+
+            height: 160px;
+        }
+
+
+        .cake-top {
+            position: absolute;
+
+            width: 280px;
+
+            height: 85px;
+
+            background: #f3a9bb;
+
+            border-radius: 50%;
+
+            top: 25px;
+
+            left: 0;
+
+            z-index: 2;
+
+            box-shadow:
+                0 15px 50px
+                rgba(255, 140, 170, 0.25);
+        }
+
+
+        .cake-body {
+            position: absolute;
+
+            width: 280px;
+
+            height: 100px;
+
+            top: 65px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #df829c,
+                    #bb5d7b
+                );
+
+            border-radius:
+                0 0 35px 35px;
+        }
+
+
+        .cake-cream {
+            position: absolute;
+
+            width: 45px;
+
+            height: 45px;
+
+            background: #f3a9bb;
+
+            border-radius: 50%;
+
+            z-index: 3;
+
+            top: 62px;
+        }
+
+
+        .cream1 {
+            left: 20px;
+        }
+
+        .cream2 {
+            left: 75px;
+        }
+
+        .cream3 {
+            left: 130px;
+        }
+
+        .cream4 {
+            left: 185px;
+        }
+
+        .cream5 {
+            left: 230px;
+        }
+
+
+
+        /* =========================
+           CANDLES
+        ========================= */
+
+        .candles {
+            position: absolute;
+
+            display: flex;
+
+            gap: 25px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            top: -30px;
+
+            z-index: 10;
+        }
+
+
+        .candle {
+            width: 12px;
+
+            height: 60px;
+
+            background:
+                repeating-linear-gradient(
+                    45deg,
+                    #fff,
+                    #fff 6px,
+                    #ef829e 6px,
+                    #ef829e 12px
+                );
+
+            border-radius: 4px;
+
+            position: relative;
+        }
+
+
+        .flame {
+            position: absolute;
+
+            width: 14px;
+
+            height: 22px;
+
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    #fff7bd 0%,
+                    #ffcb4b 45%,
+                    #ff6b21 100%
+                );
+
+            border-radius: 50%;
+
+            top: -26px;
+
+            left: -1px;
+
+            animation:
+                flame 0.7s infinite alternate;
+
+            filter:
+                drop-shadow(
+                    0 0 10px #ffb13b
+                );
+
+            transition:
+                opacity 0.5s ease,
+                transform 0.5s ease;
+        }
+
+
+        @keyframes flame {
+
+            from {
+                transform:
+                    rotate(-4deg)
+                    scale(0.95);
+            }
+
+            to {
+                transform:
+                    rotate(5deg)
+                    scale(1.08);
+            }
+
+        }
+
+
+        .flame.off {
+            opacity: 0;
+
+            transform: scale(0);
+        }
+
+
+
+        /* =========================
+           CLICK TEXT
+        ========================= */
+
+        .click-text {
+            margin-top: 45px;
+
+            font-size: 13px;
+
+            opacity: 0.65;
+
+            animation:
+                pulse 1.5s infinite;
+        }
+
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.4;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+        }
+
+
+
+        /* =========================
+           SURPRISE
+        ========================= */
+
+        .surprise {
+            margin-top: 90px;
+
+            width: min(750px, 92vw);
+
+            opacity: 0;
+
+            transform:
+                translateY(60px)
+                rotate(-5deg)
+                scale(0.8);
+
+            pointer-events: none;
+
+            transition:
+                opacity 0.9s ease,
+                transform 1s
+                cubic-bezier(.15,.8,.25,1);
+        }
+
+
+        .surprise.show {
+            opacity: 1;
+
+            transform:
+                translateY(0)
+                rotate(-2deg)
+                scale(1);
+
+            pointer-events: auto;
+        }
+
+
+        .polaroid {
+            background: #faf7ef;
+
+            padding:
+                14px
+                14px
+                65px;
+
+            box-shadow:
+                0 30px 80px
+                rgba(0,0,0,0.45);
+
+            position: relative;
+        }
+
+
+        /*
+        Когда пришлёшь фотку,
+        этот класс уже готов.
+        */
+
+        .photo {
+            width: 100%;
+            height: auto;
+        
+            display: block;
+        
+            border-radius: 3px;
+        }
+
+
+        .photo-placeholder {
+            width: 100%;
+
+            aspect-ratio: 4 / 5;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #dba9b8,
+                    #8d5268
+                );
+
+            color: white;
+
+            padding: 40px;
+
+            font-size: 18px;
+        }
+
+
+        .caption {
+            position: absolute;
+
+            bottom: 20px;
+
+            left: 0;
+
+            right: 0;
+
+            color: #34222a;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-style: italic;
+
+            font-size: 22px;
+
+            padding: 0 15px;
+        }
+
+
+
+        /* =========================
+           FINAL TEXT
+        ========================= */
+
+        .final-message {
+            margin-top: 55px;
+
+            opacity: 0;
+
+            transform:
+                translateY(20px);
+
+            transition:
+                1s ease;
+
+            transition-delay:
+                0.5s;
+        }
+
+
+        .final-message.show {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        .final-message h2 {
+            font-family:
+                Georgia,
+                serif;
+
+            font-weight: normal;
+
+            font-style: italic;
+
+            font-size:
+                clamp(28px, 5vw, 38px);
+
+            margin-bottom: 12px;
+        }
+
+
+        .final-message p {
+            opacity: 0.55;
+
+            font-size: 13px;
+
+            letter-spacing: 2px;
+        }
+
+
+
+        /* =========================
+           CONFETTI
+        ========================= */
+
+        .confetti {
+            position: fixed;
+
+            top: -20px;
+
+            width: 10px;
+
+            height: 16px;
+
+            z-index: 100;
+
+            pointer-events: none;
+
+            animation:
+                confettiFall
+                linear forwards;
+        }
+
+
+        @keyframes confettiFall {
+
+            to {
+                transform:
+                    translateY(110vh)
+                    rotate(720deg);
+            }
+
+        }
+
+
+
+        /* =========================
+           STARS
+        ========================= */
+
+        .star {
+            position: fixed;
+
+            color: #ffd38b;
+
+            opacity: 0.4;
+
+            pointer-events: none;
+
+            animation:
+                starFloat
+                4s infinite ease-in-out;
+        }
+
+
+        @keyframes starFloat {
+
+            50% {
+                transform:
+                    translateY(-12px)
+                    rotate(15deg);
+
+                opacity: 0.9;
+            }
+
+        }
+
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .page {
+                padding-top: 45px;
+            }
+
+
+            h1 {
+                font-size:
+                    clamp(42px, 14vw, 70px);
+
+                line-height: 0.95;
+            }
+
+
+            .subtitle {
+                /*
+                На телефоне тоже
+                оставляем большой отступ
+                */
+                margin-bottom: 90px;
+            }
+
+
+            .cake {
+                transform:
+                    scale(0.85);
+            }
+
+
+            .cake-wrapper {
+                margin-top: 10px;
+            }
+
+
+            .click-text {
+                margin-top: 20px;
+            }
+
+
+            .surprise {
+                margin-top: 65px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <div class="small">
+        поздравляю замечательную девочку
+    </div>
+
+
+    <h1>
+        С Днём<br>
+        рождения, красотка ♡
+    </h1>
+
+
+    <p class="subtitle">
+        фух ну давай, задувай :)
+    </p>
+
+
+
+    <!-- =========================
+         CAKE
+    ========================== -->
+
+    <div
+        class="cake-wrapper"
+        id="cake"
+    >
+
+
+        <div class="cake">
+
+
+            <div class="candles">
+
+
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+
+
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+
+
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+
+
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+
+
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+
+
+            </div>
+
+
+            <div class="cake-top"></div>
+
+            <div class="cake-body"></div>
+
+
+            <div class="cake-cream cream1"></div>
+
+            <div class="cake-cream cream2"></div>
+
+            <div class="cake-cream cream3"></div>
+
+            <div class="cake-cream cream4"></div>
+
+            <div class="cake-cream cream5"></div>
+
+
+        </div>
+
+
+        <p class="click-text">
+            тыкай на торт
+        </p>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         SURPRISE PHOTO
+    ========================== -->
+
+    <div
+        class="surprise"
+        id="surprise"
+    >
+
+
+        <div class="polaroid">
+
+
+            <!--
+            СЮДА ПОТОМ ВСТАВИМ ФОТКУ
+            -->
+
+
+            <img
+    src="birthday-photo.png"
+    class="photo"
+    alt="birthday photo"
+>
+
+
+            <div class="caption">
+
+                чтобы всегда так сладко было
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- FINAL -->
+
+
+    <div
+        class="final-message"
+        id="finalMessage"
+    >
+
+
+        <h2>
+            не переставай баловаться
+        </h2>
+
+
+        <p>
+            С ПРАЗДНИКОМ ♡
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================
+     MUSIC
+
+     ФАЙЛ ДОЛЖЕН НАЗЫВАТЬСЯ:
+     birthday.mp3
+========================== -->
+
+
+<audio
+    id="birthdayMusic"
+    preload="auto"
+>
+
+    <source
+        src="birthday.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+
+<script>
+
+
+    const cake =
+        document.getElementById("cake");
+
+
+    const surprise =
+        document.getElementById("surprise");
+
+
+    const finalMessage =
+        document.getElementById("finalMessage");
+
+
+    const music =
+        document.getElementById("birthdayMusic");
+
+
+    const flames =
+        document.querySelectorAll(".flame");
+
+
+    let opened = false;
+
+
+
+    /* =========================
+       CLICK ON CAKE
+    ========================== */
+
+
+    cake.addEventListener(
+        "click",
+        function () {
+
+
+            if (opened) {
+                return;
+            }
+
+
+            opened = true;
+
+
+
+            /*
+            ТУШИМ СВЕЧИ
+            */
+
+            flames.forEach(
+                function (flame) {
+
+                    flame.classList.add("off");
+
+                }
+            );
+
+
+
+            /*
+            КОНФЕТТИ
+            */
+
+            createConfetti();
+
+
+
+            /*
+            ПОКАЗЫВАЕМ ФОТО
+            */
+
+            setTimeout(
+                function () {
+
+                    surprise.classList.add(
+                        "show"
+                    );
+
+                },
+                350
+            );
+
+
+
+            /*
+            ПОКАЗЫВАЕМ ФИНАЛЬНЫЙ ТЕКСТ
+            */
+
+            setTimeout(
+                function () {
+
+                    finalMessage.classList.add(
+                        "show"
+                    );
+
+                },
+                900
+            );
+
+
+
+            /*
+            ВКЛЮЧАЕМ МУЗЫКУ
+            */
+
+            music.volume = 0.6;
+
+            music.currentTime = 0;
+
+
+            music.play().catch(
+                function () {
+
+                    console.log(
+                        "Не найден файл birthday.mp3"
+                    );
+
+                }
+            );
+
+
+
+            /*
+            ПРОКРУЧИВАЕМ К ФОТО
+            */
+
+            setTimeout(
+                function () {
+
+                    surprise.scrollIntoView({
+
+                        behavior: "smooth",
+
+                        block: "center"
+
+                    });
+
+                },
+                700
+            );
+
+
+        }
+    );
+
+
+
+    /* =========================
+       CONFETTI
+    ========================== */
+
+
+    function createConfetti() {
+
+
+        const colors = [
+
+            "#ff8ca8",
+
+            "#ffd36e",
+
+            "#ffffff",
+
+            "#d994ff",
+
+            "#ff678d"
+
+        ];
+
+
+        for (
+            let i = 0;
+            i < 100;
+            i++
+        ) {
+
+
+            const confetti =
+                document.createElement(
+                    "div"
+                );
+
+
+            confetti.classList.add(
+                "confetti"
+            );
+
+
+            confetti.style.left =
+                Math.random()
+                * 100
+                + "vw";
+
+
+            confetti.style.background =
+                colors[
+                    Math.floor(
+                        Math.random()
+                        * colors.length
+                    )
+                ];
+
+
+            confetti.style.animationDuration =
+                (
+                    2
+                    +
+                    Math.random()
+                    * 3
+                )
+                + "s";
+
+
+            confetti.style.animationDelay =
+                (
+                    Math.random()
+                    * 0.7
+                )
+                + "s";
+
+
+            document.body.appendChild(
+                confetti
+            );
+
+
+            setTimeout(
+                function () {
+
+                    confetti.remove();
+
+                },
+                6000
+            );
+
+
+        }
+
+    }
+
+
+
+    /* =========================
+       DECORATIVE STARS
+    ========================== */
+
+
+    for (
+        let i = 0;
+        i < 18;
+        i++
+    ) {
+
+
+        const star =
+            document.createElement(
+                "div"
+            );
+
+
+        star.classList.add(
+            "star"
+        );
+
+
+        star.innerHTML =
+            "✦";
+
+
+        star.style.left =
+            Math.random()
+            * 100
+            + "vw";
+
+
+        star.style.top =
+            Math.random()
+            * 100
+            + "vh";
+
+
+        star.style.fontSize =
+            (
+                8
+                +
+                Math.random()
+                * 15
+            )
+            + "px";
+
+
+        star.style.animationDelay =
+            Math.random()
+            * 4
+            + "s";
+
+
+        document.body.appendChild(
+            star
+        );
+
+
+    }
+
+
+</script>
+
+
+</body>
+
+</html>
